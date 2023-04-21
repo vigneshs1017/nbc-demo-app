@@ -1,50 +1,8 @@
-# Vue.js + Node.js Express + MySQL: CRUD example on same server/port
-
-For more detail, please visit:
-> [How to serve/combine Vue App with Express](https://bezkoder.com/serve-vue-app-express/)
-
-> [Vue.js CRUD App with Vue Router & Axios](https://bezkoder.com/vue-js-crud-app/)
-
-> [Build Node.js Rest APIs with Express, Sequelize & MySQL](https://bezkoder.com/node-js-express-sequelize-mysql/)
-
-More Practice:
-> [Vue Pagination with Axios and API example](https://bezkoder.com/vue-pagination-axios/)
-
-> [Server side Pagination in Node.js with Sequelize and MySQL](https://bezkoder.com/node-js-sequelize-pagination-mysql/)
-
-> [Deploying/Hosting Node.js app on Heroku with MySQL database](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
-
-Associations:
-> [Sequelize Associations: One-to-Many Relationship example](https://bezkoder.com/sequelize-associate-one-to-many/)
-
-> [Sequelize Associations: Many-to-Many Relationship example](https://bezkoder.com/sequelize-associate-many-to-many/)
-
-Fullstack with Node.js Express:
-> [Vue.js + Node.js Express + MySQL](https://bezkoder.com/vue-js-node-js-express-mysql-crud-example/)
-
-> [Vue.js + Node.js Express + PostgreSQL](https://bezkoder.com/vue-node-express-postgresql/)
-
-> [Vue.js + Node.js Express + MongoDB](https://bezkoder.com/vue-node-express-mongodb-mevn-crud/)
-
-Fullstack with Spring Boot:
-> [Vue.js + Spring Boot](https://bezkoder.com/spring-boot-vue-js-crud-example/)
-
-> [Vue.js + Spring Boot + MongoDB](https://bezkoder.com/spring-boot-vue-mongodb/)
-
-Fullstack with Django:
-> [Vue.js + Django](https://bezkoder.com/django-vue-js-rest-framework/)
-
-Serverless with Firebase:
-> [Vue Firebase Realtime Database: CRUD example](https://bezkoder.com/vue-firebase-realtime-database/)
-
-> [Vue Firestore CRUD example](https://bezkoder.com/vue-firestore-crud/)
-
-## Project setup
-```
-npm install
-```
-
-### Run
-```
-node server.js
-```
+###### Run the application locally #######
+ 1. Clone the application repository onto your local computer in order to execute the application locally.
+ 2. Update the MYSQL_USER and MYSQL_PASS values in the docker-compose.yml file. 
+ 3. Change the corsOptions Origin in the server.js file to http://localhost:8080 
+ 4. Update the database HOST, USER, and PASS in the app/config/db-config.js file.
+ 4. To deploy the programme locally, please run the following command once it has finished.
+     1. docker-compose up -d --- This will set up and run the Docker container on your local machine.
+     2. docker ps --- To see the list of running containers.
