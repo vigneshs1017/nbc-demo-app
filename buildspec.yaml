@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo $AWS_DEFAULT_REGION
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 919490798061.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - REPOSITORY_NAME="nbcdemoapp"      
+      - REPOSITORY_URI=919490798061.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/nbc-app
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+  
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_NAME:latest .
+      - docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI:latest
+      - docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - printf '[{"name":"nbc-dev-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+
+artifacts:
+  files: imagedefinitions.json
